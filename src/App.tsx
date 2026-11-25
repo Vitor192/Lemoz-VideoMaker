@@ -102,7 +102,7 @@ function VideoPoster({ src, title }: { src: string; title: string }) {
 
 const storyPanels = [
   {
-    image: sitePath('/assets/lemoz-01.jpg'),
+    image: sitePath('/assets/lemoz-04.jpg'),
     alt: 'Videomaker Lemoz registrando um evento com câmera e celular',
     eyebrow: '01 / PRESENÇA',
     heading: <>O olhar atento<br />por trás de cada <em>cena.</em></>,
