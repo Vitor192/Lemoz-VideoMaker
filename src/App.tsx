@@ -7,19 +7,21 @@ type GalleryMedia = {
   title: string;
 };
 
+const sitePath = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+
 const galleryItems: GalleryMedia[] = [
-  { kind: 'photo', src: '/gallery/img-0344.jpg', alt: 'Noivos e convidados reunidos durante uma celebração', title: 'Um dia para celebrar' },
-  { kind: 'video', src: '/gallery/video-01.mp4', title: 'Filme 01' },
-  { kind: 'photo', src: '/gallery/img-0343.jpg', alt: 'Registro de uma celebração especial', title: 'Um instante especial' },
-  { kind: 'video', src: '/gallery/video-02.mp4', title: 'Filme 02' },
-  { kind: 'photo', src: '/gallery/img-1104.jpg', alt: 'Detalhes de um evento registrados pela Lemoz', title: 'Detalhes que ficam' },
-  { kind: 'photo', src: '/gallery/img-1102.jpg', alt: 'Um momento espontâneo durante o evento', title: 'Do jeito que aconteceu' },
-  { kind: 'video', src: '/gallery/video-03.mp4', title: 'Filme 03' },
-  { kind: 'photo', src: '/gallery/img-1132.jpg', alt: 'Lembrança de uma ocasião especial', title: 'Memórias para guardar' },
-  { kind: 'video', src: '/gallery/video-04.mp4', title: 'Filme 04' },
-  { kind: 'photo', src: '/gallery/img-1157.jpg', alt: 'Cena de uma celebração em família', title: 'Celebrar juntos' },
-  { kind: 'photo', src: '/gallery/img-1156.jpg', alt: 'Um registro feito durante o evento', title: 'Uma história em imagens' },
-  { kind: 'photo', src: '/gallery/img-casamento.jpg', alt: 'Casal e convidados após uma cerimônia ao ar livre', title: 'Uma nova história começa' },
+  { kind: 'photo', src: sitePath('/gallery/img-0344.jpg'), alt: 'Noivos e convidados reunidos durante uma celebração', title: 'Um dia para celebrar' },
+  { kind: 'video', src: sitePath('/gallery/video-01.mp4'), title: 'Filme 01' },
+  { kind: 'photo', src: sitePath('/gallery/img-0343.jpg'), alt: 'Registro de uma celebração especial', title: 'Um instante especial' },
+  { kind: 'video', src: sitePath('/gallery/video-02.mp4'), title: 'Filme 02' },
+  { kind: 'photo', src: sitePath('/gallery/img-1104.jpg'), alt: 'Detalhes de um evento registrados pela Lemoz', title: 'Detalhes que ficam' },
+  { kind: 'photo', src: sitePath('/gallery/img-1102.jpg'), alt: 'Um momento espontâneo durante o evento', title: 'Do jeito que aconteceu' },
+  { kind: 'video', src: sitePath('/gallery/video-03.mp4'), title: 'Filme 03' },
+  { kind: 'photo', src: sitePath('/gallery/img-1132.jpg'), alt: 'Lembrança de uma ocasião especial', title: 'Memórias para guardar' },
+  { kind: 'video', src: sitePath('/gallery/video-04.mp4'), title: 'Filme 04' },
+  { kind: 'photo', src: sitePath('/gallery/img-1157.jpg'), alt: 'Cena de uma celebração em família', title: 'Celebrar juntos' },
+  { kind: 'photo', src: sitePath('/gallery/img-1156.jpg'), alt: 'Um registro feito durante o evento', title: 'Uma história em imagens' },
+  { kind: 'photo', src: sitePath('/gallery/img-casamento.jpg'), alt: 'Casal e convidados após uma cerimônia ao ar livre', title: 'Uma nova história começa' },
 ];
 
 function VideoPoster({ src, title }: { src: string; title: string }) {
@@ -98,7 +100,7 @@ function VideoPoster({ src, title }: { src: string; title: string }) {
 
 const storyPanels = [
   {
-    image: '/assets/lemoz-01.jpg',
+    image: sitePath('/assets/lemoz-01.jpg'),
     alt: 'Videomaker Lemoz registrando um evento ao ar livre',
     eyebrow: '01 / PRESENÇA',
     heading: <>O olhar atento<br />por trás de cada <em>cena.</em></>,
@@ -106,7 +108,7 @@ const storyPanels = [
     service: 'VIDEOMAKER · EVENTOS',
   },
   {
-    image: '/assets/lemoz-02.jpg',
+    image: sitePath('/assets/lemoz-02.jpg'),
     alt: 'Videomaker Lemoz com câmera e equipamento profissional',
     eyebrow: '02 / MEMÓRIA',
     heading: <>Seu dia passa.<br />O filme <em>permanece.</em></>,
@@ -114,7 +116,7 @@ const storyPanels = [
     service: 'FILMES · HISTÓRIAS REAIS',
   },
   {
-    image: '/assets/lemoz-03.jpg',
+    image: sitePath('/assets/lemoz-03.jpg'),
     alt: 'Videomaker Lemoz pronto para registrar histórias',
     eyebrow: '03 / INSTANTE',
     heading: <>Feito para sentir.<br />Feito para <em>lembrar.</em></>,
@@ -256,7 +258,7 @@ function App() {
 
       <main id="inicio">
         <section className="hero" aria-labelledby="intro-title">
-          <img className="hero-image" src="/assets/lemoz-01.jpg" alt="Videomaker Lemoz registrando um evento" fetchPriority="high" />
+          <img className="hero-image" src={sitePath('/assets/lemoz-01.jpg')} alt="Videomaker Lemoz registrando um evento" fetchPriority="high" />
           <div className="hero-shade" />
           <div className="hero-copy">
             <div className="intro-kicker"><span className="dot" /> FILMES FEITOS COM PRESENÇA</div>
