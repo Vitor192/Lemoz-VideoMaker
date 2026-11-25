@@ -43,7 +43,7 @@ Fotos usam os formatos suportados pelo navegador, como JPEG, PNG ou WebP. Para v
 
 ## Orçamentos
 
-O formulário prepara uma mensagem com as respostas e abre o aplicativo de e-mail do visitante para `oi@lemoz.com.br`. O envio é concluído pelo próprio visitante no aplicativo de e-mail.
+O formulário reúne as respostas e abre o WhatsApp da Lemoz (`+55 22 99988-4350`) com a mensagem pronta. O visitante pode revisar e enviar a solicitação pelo WhatsApp.
 
 ---
 

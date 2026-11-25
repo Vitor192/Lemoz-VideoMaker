@@ -235,13 +235,14 @@ function App() {
       ['Local', data.get('local')],
       ['Detalhes do projeto', data.get('observacoes')],
     ];
-    const body = rows
+    const details = rows
       .filter(([, value]) => Array.isArray(value) ? value.length > 0 : Boolean(value))
       .map(([label, value]) => `${label}: ${Array.isArray(value) ? value.join(', ') : value}`)
       .join('\n');
-    const subject = `Pedido de orçamento Lemoz — ${data.get('nome')}`;
-    setQuoteStatus('Seu aplicativo de e-mail será aberto com os detalhes do pedido.');
-    window.location.href = `mailto:oi@lemoz.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const message = `Olá, Lemoz! Gostaria de solicitar um orçamento.\n\n${details}`;
+    const whatsappUrl = `https://wa.me/5522999884350?text=${encodeURIComponent(message)}`;
+    setQuoteStatus('O WhatsApp será aberto com a mensagem pronta. Revise os dados e toque em enviar.');
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -353,7 +354,7 @@ function App() {
                 <label className="field field--full"><span>Observações</span><textarea name="observacoes" rows={5} placeholder="Conte um pouco mais sobre o evento, a ideia ou o que você gostaria de registrar." /></label>
               </div>
             </fieldset>
-            <div className="quote-submit"><p>As informações serão preparadas em uma mensagem para a equipe Lemoz.</p><button type="submit">Solicitar orçamento <span aria-hidden="true">↗</span></button></div>
+            <div className="quote-submit"><p>Seus dados serão organizados em uma mensagem do WhatsApp para (22) 99988-4350.</p><button type="submit">Solicitar orçamento pelo WhatsApp <span aria-hidden="true">↗</span></button></div>
             <p className="quote-status" role="status" aria-live="polite">{quoteStatus}</p>
           </form>
         </section>
