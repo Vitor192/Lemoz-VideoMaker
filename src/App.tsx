@@ -272,7 +272,7 @@ function App() {
 
         <section className="story" id="historia" aria-label="Conheça o trabalho Lemoz">
           {storyPanels.map((panel, index) => (
-            <article className={`story-panel reveal ${index % 2 === 1 ? 'story-panel--reverse' : ''}`} key={panel.eyebrow}>
+            <article className={`story-panel reveal ${index % 2 === 1 ? 'story-panel--reverse' : ''} ${index === 2 ? 'story-panel--third' : ''}`} key={panel.eyebrow}>
               <div className="photo-wrap"><img src={panel.image} alt={panel.alt} loading={index === 0 ? 'eager' : 'lazy'} /></div>
               <div className="story-copy">
                 <span className="eyebrow">{panel.eyebrow}</span>
