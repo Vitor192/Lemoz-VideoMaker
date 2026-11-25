@@ -8,6 +8,8 @@ type GalleryMedia = {
 };
 
 const sitePath = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+const whatsappNumber = '5522999884350';
+const whatsappStoryUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá, Lemoz! Quero conversar sobre a criação de uma história.')}`;
 
 const galleryItems: GalleryMedia[] = [
   { kind: 'photo', src: sitePath('/gallery/img-0344.jpg'), alt: 'Noivos e convidados reunidos durante uma celebração', title: 'Um dia para celebrar' },
@@ -101,7 +103,7 @@ function VideoPoster({ src, title }: { src: string; title: string }) {
 const storyPanels = [
   {
     image: sitePath('/assets/lemoz-01.jpg'),
-    alt: 'Videomaker Lemoz registrando um evento ao ar livre',
+    alt: 'Videomaker Lemoz registrando um evento com câmera e celular',
     eyebrow: '01 / PRESENÇA',
     heading: <>O olhar atento<br />por trás de cada <em>cena.</em></>,
     body: 'Em meio à emoção, aos encontros e aos detalhes, existe sempre uma história acontecendo. A Lemoz está ali para enxergá-la de perto.',
@@ -240,7 +242,7 @@ function App() {
       .map(([label, value]) => `${label}: ${Array.isArray(value) ? value.join(', ') : value}`)
       .join('\n');
     const message = `Olá, Lemoz! Gostaria de solicitar um orçamento.\n\n${details}`;
-    const whatsappUrl = `https://wa.me/5522999884350?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     setQuoteStatus('O WhatsApp será aberto com a mensagem pronta. Revise os dados e toque em enviar.');
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
@@ -259,13 +261,13 @@ function App() {
 
       <main id="inicio">
         <section className="hero" aria-labelledby="intro-title">
-          <img className="hero-image" src={sitePath('/assets/lemoz-01.jpg')} alt="Videomaker Lemoz registrando um evento" fetchPriority="high" />
+          <img className="hero-image" src={sitePath('/assets/lemoz-01.jpg')} alt="Videomaker Lemoz registrando um evento com câmera e celular" fetchPriority="high" />
           <div className="hero-shade" />
           <div className="hero-copy">
             <div className="intro-kicker"><span className="dot" /> FILMES FEITOS COM PRESENÇA</div>
             <h1 id="intro-title"><span>Há momentos</span><span>que merecem</span><span><em>ficar.</em></span></h1>
             <p>Filmes e histórias para guardar a beleza do que acontece uma só vez.</p>
-            <a className="hero-cta" href="mailto:oi@lemoz.com.br">Vamos criar a sua história <span aria-hidden="true">↗</span></a>
+            <a className="hero-cta" href={whatsappStoryUrl} target="_blank" rel="noreferrer">Vamos criar a sua história <span aria-hidden="true">↗</span></a>
           </div>
           <div className="hero-bottomline"><span>VIDEOMAKER <i>·</i> STORYMAKER</span><a className="scroll-cue" href="#historia"><span className="scroll-line" /> ROLE PARA CONHECER</a><span>BRASIL <b>—</b> 2026</span></div>
           <span className="hero-wordmark" aria-hidden="true">LEMOZ</span>
@@ -280,7 +282,7 @@ function App() {
                 <h2>{panel.heading}</h2>
                 <p>{panel.body}</p>
                 <span className="service">{panel.service}</span>
-                {index === 2 && <a className="cta" href="mailto:oi@lemoz.com.br">Vamos criar essa história <span aria-hidden="true">↗</span></a>}
+                {index === 2 && <a className="cta" href={whatsappStoryUrl} target="_blank" rel="noreferrer">Vamos criar essa história <span aria-hidden="true">↗</span></a>}
               </div>
             </article>
           ))}
