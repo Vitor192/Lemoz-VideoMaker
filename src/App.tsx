@@ -356,7 +356,7 @@ function App() {
                 <label className="field field--full"><span>Observações</span><textarea name="observacoes" rows={5} placeholder="Conte um pouco mais sobre o evento, a ideia ou o que você gostaria de registrar." /></label>
               </div>
             </fieldset>
-            <div className="quote-submit"><p>Seus dados serão organizados em uma mensagem do WhatsApp para (22) 99988-4350.</p><button type="submit">Solicitar orçamento pelo WhatsApp <span aria-hidden="true">↗</span></button></div>
+            <div className="quote-submit"><button type="submit">Solicitar orçamento pelo WhatsApp <span aria-hidden="true">↗</span></button></div>
             <p className="quote-status" role="status" aria-live="polite">{quoteStatus}</p>
           </form>
         </section>
